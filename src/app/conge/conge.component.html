@@ -1,0 +1,12 @@
+<div class="conge-item rounded" [class.conge-item-selected]="userConge.isSelected">
+    <div class="title" style="text-align:center;">{{userConge.user.firstname}} {{userConge.user.lastname}}</div>
+    <div style="display:inline-block">{{userConge.conge.dateDebut}}</div>
+    <div style="display:inline-block">{{userConge.conge.dateFin}}</div>
+    #{{userConge.isSelected}}#
+    state : #{{userConge.conge.status}}#
+    <div style="text-align:center;">
+      <a href="#" (click)="validate()"><i class="fa fa-check" aria-hidden="true"></i></a>
+      <!--<i class="fa fa-envelope-o" aria-hidden="true"></i>-->
+      <a href="#" (click)="delete()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.conge-item {
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  background-color: #5BC0DE;
+  color : #FFFFFF;
+  display: inline-block;
+  .title {
+    font-weight: bold;
+  }
+  &.conge-item-selected {
+    background-color: #004D93;
+  }
+}

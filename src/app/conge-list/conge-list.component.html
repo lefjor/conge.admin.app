@@ -1,0 +1,23 @@
+<div class="row px-2">
+  <div class="col-12">
+    <div class="alert alert-infotel" [ngSwitch]="congeStatusToShow">
+        <ng-template [ngSwitchCase]="CongeStatus.CREATED">Congés en attente de validation</ng-template>
+        <ng-template [ngSwitchCase]="CongeStatus.VALIDATED">Congés validés</ng-template>
+      <span class="badge badge-info badge-pill">{{getBadgeNumber()}}</span>
+    </div>
+  </div>
+</div>
+<div class="row px-2 conge-list-menu">
+  <div class="col-6" >
+    <a href="#" *ngIf="!isSelectedAll; else elseBlock" (click)="selectAll()">Selectionner tout</a>
+    <ng-template #elseBlock><a href="#" (click)="unselectAll()">Déselectionner tout</a></ng-template>
+  </div>
+  <div *ngIf="isSelectedAll" class="col-6" style="text-align:right;">
+    <a href="#" (click)="validateAll()"><i class="fa fa-check" aria-hidden="true"></i></a>
+    <!--<i class="fa fa-envelope-o" aria-hidden="true"></i>-->
+    <a href="#" (click)="deleteAll()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+  </div>
+</div>
+<div class="row mx-2 conge-list-items">
+    <app-conge *ngFor="let userConge of userConges" [userConge]="userConge"></app-conge>
+</div>

@@ -1,0 +1,30 @@
+h1 {
+  color: #004D93;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0 10px 0;
+}
+
+.logo {
+  padding: 20px 0 10px 0;
+}
+
+.debug-mq {
+  color : #FFFFFF;
+  font-weight: bold;
+  .device-xs {
+    background-color: #00F1FF;
+  }
+  .device-sm {
+    background-color: #0018FF;
+  }
+  .device-md {
+    background-color: #4EFF24;
+  }
+  .device-lg {
+    background-color: #FF9400;
+  }
+  .device-xl {
+    background-color: #FF1400;
+  }
+}
