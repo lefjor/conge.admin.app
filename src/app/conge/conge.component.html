@@ -1,12 +1,21 @@
-<div class="conge-item rounded" [class.conge-item-selected]="userConge.isSelected">
+<div class="hidden-xs-down conge-item-sm rounded" [class.conge-item-selected]="userConge.isSelected">
     <div class="title" style="text-align:center;">{{userConge.user.firstname}} {{userConge.user.lastname}}</div>
-    <div style="display:inline-block">{{userConge.conge.dateDebut}}</div>
-    <div style="display:inline-block">{{userConge.conge.dateFin}}</div>
-    #{{userConge.isSelected}}#
-    state : #{{userConge.conge.status}}#
+    <div style="display:inline-block">{{userConge.conge.beginDate}} - </div>
+    <div style="display:inline-block">{{userConge.conge.endDate}}</div>
     <div style="text-align:center;">
-      <a href="#" (click)="validate()"><i class="fa fa-check" aria-hidden="true"></i></a>
+      <a href="#" *ngIf="userConge.conge.status !== CongeStatus.VALIDATED" (click)="validate()"><i class="fa fa-check" aria-hidden="true"></i></a>
       <!--<i class="fa fa-envelope-o" aria-hidden="true"></i>-->
       <a href="#" (click)="delete()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
     </div>
+</div>
+
+<div class="conge-item-xs my-2 row hidden-sm-up" [class.conge-item-selected]="userConge.isSelected">
+  <div class="col-12">
+    <span class="title">{{userConge.user.firstname}} {{userConge.user.lastname}} : {{userConge.conge.beginDate}} - {{userConge.conge.endDate}} ({{userConge.conge.offDayNumber}})</span>
+    <div class="btn-group btn-group-sm" role="group" aria-label="Actions possible">
+      <button type="button" *ngIf="userConge.conge.status !== CongeStatus.VALIDATED" (click)="validate()" class="btn btn-secondary"><i class="fa fa-check" aria-hidden="true"></i></button>
+      <!--<button type="button" class="btn btn-secondary"><i class="fa fa-envelope-o" aria-hidden="true"></button>-->
+      <button type="button" (click)="delete()" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </div>
+  </div>
 </div>

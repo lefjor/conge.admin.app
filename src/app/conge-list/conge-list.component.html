@@ -13,11 +13,13 @@
     <ng-template #elseBlock><a href="#" (click)="unselectAll()">Déselectionner tout</a></ng-template>
   </div>
   <div *ngIf="isSelectedAll" class="col-6" style="text-align:right;">
-    <a href="#" (click)="validateAll()"><i class="fa fa-check" aria-hidden="true"></i></a>
-    <!--<i class="fa fa-envelope-o" aria-hidden="true"></i>-->
-    <a href="#" (click)="deleteAll()"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+    <div class="btn-group btn-group-sm" role="group" aria-label="Actions possible">
+      <button type="button" (click)="validateAll()" class="btn btn-secondary"><i class="fa fa-check" aria-hidden="true"></i></button>
+      <!--<button type="button" class="btn btn-secondary"><i class="fa fa-envelope-o" aria-hidden="true"></button>-->
+      <button type="button" (click)="deleteAll()" class="btn btn-secondary"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </div>
   </div>
 </div>
-<div class="row mx-2 conge-list-items">
+<div class="mx-2 conge-list-items">
     <app-conge *ngFor="let userConge of userConges" [userConge]="userConge"></app-conge>
 </div>

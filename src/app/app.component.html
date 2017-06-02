@@ -6,6 +6,13 @@
   <div class="device-xl hidden-lg-down">XL</div>
 </div>
 
+<nav class="nav justify-content-center bg-primary">
+  <form [formGroup]="searchForm" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" formControlName="search">
+    <!--<button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>-->
+  </form>
+</nav>
+
 <!--<div class="mx-auto logo" style="width: 200px;"><img src="./assets/img/logo.png"/></div>-->
 <h1>Administration des congés <span class="badge badge-primary">New</span></h1>
 

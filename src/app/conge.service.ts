@@ -9,24 +9,24 @@ import 'rxjs/add/operator/mergeMap';
 import {UserConge} from './conge';
 import {CongeStatus} from './conge-status.enum';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
 @Injectable()
 export class CongeService {
   private api_url = '../assets/congeMock.json';
 
-  constructor(private http : Http, private db: AngularFireDatabase) { }
+  private userConges : Observable<UserConge>;
+
+  constructor(private http : Http) { }
 
   validate(userConge : UserConge) {
+    console.log("conge.service : validate()");
+    console.log("userConge : ", userConge);
     userConge.conge.status = CongeStatus.VALIDATED;
   }
 
   delete(userConge : UserConge) {
+    console.log("conge.service : delete()");
+    console.log("userConge : ", userConge);
     userConge.conge.status = CongeStatus.DELETED;
-  }
-
-  getCongesFromFirebase () : FirebaseListObservable<any>{
-    return this.db.list("/");
   }
 
   getConges(congeStatusToShow : CongeStatus) : Observable<UserConge>  {
@@ -34,14 +34,13 @@ export class CongeService {
     console.log("congeStatusToShow : ", congeStatusToShow);
     return this.http.get(this.api_url)
     .flatMap((response) => response.json())
-    .filter((userConge:UserConge) => userConge.conge.status === congeStatusToShow)
+    //.filter((userConge:UserConge) => userConge.conge.status === congeStatusToShow)
     //.map(this.extractData)
     .do((e) => console.log("test", e))
     .catch(this.handleError);
   }
 
   private extractData(res: Response) {
-
     let body = res.json();
     console.log(body);
     return body || [];

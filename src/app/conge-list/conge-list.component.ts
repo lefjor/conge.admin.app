@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/do';
 
+import {FirebaseListObservable} from 'angularfire2/database';
+
 @Component({
   selector: 'app-conge-list',
   templateUrl: './conge-list.component.html',
@@ -25,17 +27,12 @@ export class CongeListComponent implements OnInit {
   ngOnInit() {
     console.log("congeStatusToShow", this.congeStatusToShow);
     this.getConges(this.congeStatusToShow);
-    this.getCongesFromFirebase();
   }
 
   getConges(congeStatusToShow : CongeStatus) {
     this.congeService.getConges(congeStatusToShow)
+    .filter((userConge:UserConge) => userConge.conge.status === congeStatusToShow)
     .subscribe(conge => this.userConges.push(conge));
-  }
-
-  getCongesFromFirebase() {
-    let test = this.congeService.getCongesFromFirebase();
-    console.log(test);
   }
 
   validateAll() {

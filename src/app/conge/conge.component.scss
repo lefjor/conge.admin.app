@@ -1,4 +1,4 @@
-.conge-item {
+.conge-item-sm {
   padding: 10px;
   margin: 0 10px 10px 0;
   background-color: #5BC0DE;
@@ -9,5 +9,10 @@
   }
   &.conge-item-selected {
     background-color: #004D93;
+  }
+}
+.conge-item-xs {
+  &.conge-item-selected {
+    font-weight: bold;
   }
 }
