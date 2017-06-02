@@ -1,0 +1,82 @@
+[
+  {
+    "user": {
+      "firstname" : "Jordan",
+      "lastname" : "Lefebvre",
+      "matricule" : "3809",
+      "isPartialTime" : true
+    },
+    "conge" : {
+      "beginDate" : "20/02/2222",
+      "isBeginDateMorning" : true,
+      "isBeginDateAfternoon" : true,
+      "endDate" : "10/09/2017",
+      "isEndDateMorning" : true,
+      "isEndDateAfternoon" : true,
+      "reason" : "test",
+      "offDayNumber" : 1,
+      "otherDetails" : "coucou",
+      "status" : 0
+    }
+  },
+  {
+    "user": {
+      "firstname" : "Jordan",
+      "lastname" : "Test",
+      "matricule" : "3809",
+      "isPartialTime" : true
+    },
+    "conge" : {
+      "beginDate" : "20/20/2000",
+      "isBeginDateMorning" : true,
+      "isBeginDateAfternoon" : true,
+      "endDate" : "21/05/2000",
+      "isEndDateMorning" : true,
+      "isEndDateAfternoon" : true,
+      "reason" : "test",
+      "offDayNumber" : 1,
+      "otherDetails" : "coucou",
+      "status" : 0
+    }
+  },
+  {
+    "user": {
+      "firstname" : "Jordan",
+      "lastname" : "Test",
+      "matricule" : "3809",
+      "isPartialTime" : true
+    },
+    "conge" : {
+      "beginDate" : "",
+      "isBeginDateMorning" : true,
+      "isBeginDateAfternoon" : true,
+      "endDate" : "",
+      "isEndDateMorning" : true,
+      "isEndDateAfternoon" : true,
+      "reason" : "test",
+      "offDayNumber" : 1,
+      "otherDetails" : "coucou",
+      "status" : 1
+    }
+  },
+  {
+    "user": {
+      "firstname" : "Jordan",
+      "lastname" : "Test",
+      "matricule" : "3809",
+      "isPartialTime" : true
+    },
+    "conge" : {
+      "beginDate" : "",
+      "isBeginDateMorning" : true,
+      "isBeginDateAfternoon" : true,
+      "endDate" : "",
+      "isEndDateMorning" : true,
+      "isEndDateAfternoon" : true,
+      "reason" : "test",
+      "offDayNumber" : 1,
+      "otherDetails" : "coucou",
+      "status" : 1
+    }
+  }
+]
