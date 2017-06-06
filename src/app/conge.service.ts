@@ -11,7 +11,7 @@ import {CongeStatus} from './conge-status.enum';
 
 @Injectable()
 export class CongeService {
-  private api_url = '../assets/congeMock.json';
+  private api_url = './assets/congeMock.json';
 
   private userConges : Observable<UserConge>;
 
