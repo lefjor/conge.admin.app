@@ -1,5 +1,6 @@
 [
   {
+    "idUserConge" : 1,
     "user": {
       "firstname" : "Jordan",
       "lastname" : "Lefebvre",
@@ -20,6 +21,7 @@
     }
   },
   {
+    "idUserConge" : 2,
     "user": {
       "firstname" : "Jordan",
       "lastname" : "Test",
@@ -40,6 +42,7 @@
     }
   },
   {
+    "idUserConge" : 3,
     "user": {
       "firstname" : "Jordan",
       "lastname" : "Test",
@@ -60,6 +63,7 @@
     }
   },
   {
+    "idUserConge" : 4,
     "user": {
       "firstname" : "Jordan",
       "lastname" : "Test",
