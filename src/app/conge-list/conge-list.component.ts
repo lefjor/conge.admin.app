@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/do';
 
+import * as _ from "lodash";
+
 import {FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
@@ -17,49 +19,49 @@ import {FirebaseListObservable} from 'angularfire2/database';
 export class CongeListComponent implements OnInit {
   @Input() congeStatusToShow : CongeStatus;
 
-  userConges : UserConge[] = [];
   CongeStatus : typeof CongeStatus = CongeStatus;
 
   isSelectedAll : boolean = false;
 
   constructor(private congeService : CongeService) { }
 
+  userConges : UserConge[];
+
   ngOnInit() {
     console.log("congeStatusToShow", this.congeStatusToShow);
     this.getConges(this.congeStatusToShow);
   }
 
-  getConges(congeStatusToShow : CongeStatus) {
-    this.congeService.getConges(congeStatusToShow)
-    .filter((userConge:UserConge) => userConge.conge.status === congeStatusToShow)
-    .subscribe(conge => this.userConges.push(conge));
+  private getConges(congeStatusToShow : CongeStatus) {
+    console.log("conge-list.component : getConges");
+    this.congeService.userConges
+    .map(userConges => userConges.filter((userConge:UserConge) => userConge.conge.status === congeStatusToShow))
+    .subscribe((userConges) => {
+      this.userConges = userConges
+    });
   }
 
   validateAll() {
-    for(let userConge of this.userConges) {
-      this.congeService.validate(userConge);
-    }
+    console.log("conge-list.component : validateAll");
+    this.congeService.validateAll(this.userConges);
+    this.isSelectedAll = false;
   }
 
   deleteAll() {
-    for(let userConge of this.userConges) {
-      this.congeService.delete(userConge);
-    }
+    console.log("conge-list.component : deleteAll");
+    this.congeService.deleteAll(this.userConges);
+    this.isSelectedAll = false;
   }
 
   selectAll() {
+    console.log("conge-list.component : selectAll");
     this.isSelectedAll = true;
-    for(let userConge of this.userConges) {
-      userConge.isSelected = true;
-    }
+    this.congeService.selectAll(this.userConges);
   }
+
   unselectAll() {
+    console.log("conge-list.component : unselectAll");
     this.isSelectedAll = false;
-    for(let userConge of this.userConges) {
-      userConge.isSelected = false;
-    }
-  }
-  getBadgeNumber() {
-    return this.userConges != undefined ? this.userConges.length : 0;
+    this.congeService.unselectAll(this.userConges);
   }
 }

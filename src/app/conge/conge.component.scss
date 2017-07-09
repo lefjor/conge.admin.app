@@ -1,18 +1,6 @@
-.conge-item-sm {
-  padding: 10px;
-  margin: 0 10px 10px 0;
-  background-color: #5BC0DE;
-  color : #FFFFFF;
-  display: inline-block;
-  .title {
-    font-weight: bold;
-  }
+.conge-item {
+  background-color: #333333;
   &.conge-item-selected {
     background-color: #004D93;
-  }
-}
-.conge-item-xs {
-  &.conge-item-selected {
-    font-weight: bold;
   }
 }
